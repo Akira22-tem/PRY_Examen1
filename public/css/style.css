@@ -1,0 +1,164 @@
+/* Reset y estilos base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #f4f7f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Contenedor principal centrado */
+.container {
+  width: 90%;
+  max-width: 900px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Navegación */
+nav.menu {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+nav.menu a {
+  text-decoration: none;
+  color: #fff;
+  background: #007BFF;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+nav.menu a:hover {
+  background: #0056b3;
+}
+
+/* Formularios */
+form {
+  margin-bottom: 2rem;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+.form-group input,
+form select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+.form-group input:focus,
+form select:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+/* Botones */
+button {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background: #007BFF;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+button:hover {
+  background: #0056b3;
+}
+
+/* Tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+table th,
+table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+table thead th {
+  background: #f0f0f0;
+}
+table tbody tr:nth-child(even) {
+  background: #fbfbfb;
+}
+table tbody tr:hover {
+  background: #f1f7ff;
+}
+
+/* Vista previa de factura */
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.preview-total {
+  text-align: right;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Historial de facturas */
+.historia-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background: #fafafa;
+}
+.historia-item p {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.toggle-detalles,
+.btn-edit-factura,
+.btn-delete-factura {
+  background: #28a745;
+  margin: 0.2rem;
+}
+.toggle-detalles:hover,
+.btn-edit-factura:hover {
+  background: #1e7e34;
+}
+.btn-delete-factura {
+  background: #dc3545;
+}
+.btn-delete-factura:hover {
+  background: #c82333;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .preview-header,
+  nav.menu {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  table th,
+  table td {
+    padding: 0.5rem;
+  }
+}

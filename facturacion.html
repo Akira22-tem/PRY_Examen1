@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Generar Factura — Facturación</title>
+  <link rel="stylesheet" href="public/css/style.css">
+  
+</head>
+
+<body>
+  <div class="container">
+    <h2>Generar Factura</h2>
+    <form id="factura-form">
+      <div class="form-group">
+        <label for="cliente-factura">Cliente:</label>
+        <select id="cliente-factura" required></select>
+      </div>
+
+      <h3>Agregar Productos</h3>
+      <div class="form-group">
+        <label for="producto-factura">Producto:</label>
+        <select id="producto-factura"></select>
+      </div>
+      <div class="form-group">
+        <label for="cantidad-producto">Cantidad:</label>
+        <input type="number" id="cantidad-producto" min="1" value="1">
+      </div>
+      <button type="button" id="agregar-producto">Agregar Producto</button>
+
+      <h3>Productos en Esta Factura</h3>
+      <div id="productos-factura-lista"><!-- JS renderiza aquí --></div>
+
+      <div class="resumen-factura">
+        <h3>Resumen</h3>
+        <factura-resumen id="factura-resumen"></factura-resumen>
+      </div>
+
+      <button type="submit">Generar Factura</button>
+    </form>
+
+    <p><button type="button" class="btn btn-primary"><a href="index.html" style="color: white;">Menu</a></button></p>
+    <script src="/public/lib/bootstrap-5.3.6-dist/js/bootstrap.min.js"></script>
+    <script src="public/js/app.js"></script>
+</body>
+
+</html>

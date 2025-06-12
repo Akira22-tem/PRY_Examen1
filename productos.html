@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Productos — Facturación</title>
+  <link rel="stylesheet" href="public/css/style.css">
+  <link rel="stylesheet" href="/public/lib/bootstrap-5.3.6-dist/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h2>Gestión de Productos</h2>
+    <!-- Formulario para crear nuevo producto -->
+    <form id="producto-form">
+      <div class="form-group">
+        <label for="nombre-producto">Nombre:</label>
+        <input type="text" id="nombre-producto" required>
+      </div>
+      <div class="form-group">
+        <label for="codigo-producto">Código:</label>
+        <input type="text" id="codigo-producto" required>
+      </div>
+      <div class="form-group">
+        <label for="precio-producto">Precio:</label>
+        <input type="number" id="precio-producto" step="0.01" min="0" required>
+      </div>
+      <button type="submit">Registrar Producto</button>
+    </form>
+
+    <h3>Productos Registrados</h3>
+    <div id="productos-lista"><!-- Aquí renderiza JS --></div>
+
+    <p><button type="button" class="btn btn-primary"><a href="index.html" style="color: white;">Menu</a></button></p>
+  </div>
+  <script src="/public/lib/bootstrap-5.3.6-dist/js/bootstrap.min.js"></script>
+  <script src="public/js/app.js"></script>
+</body>
+
+</html>
