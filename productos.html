@@ -5,37 +5,154 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Productos — Facturación</title>
-  <link rel="stylesheet" href="public/css/style.css">
-  <link rel="stylesheet" href="/public/lib/bootstrap-5.3.6-dist/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="./public/lib/bootstrap-5.3.6-dist/css/bootstrap.min.css">
 </head>
 
-<body>
-  <div class="container">
-    <h2>Gestión de Productos</h2>
-    <!-- Formulario para crear nuevo producto -->
-    <form id="producto-form">
-      <div class="form-group">
-        <label for="nombre-producto">Nombre:</label>
-        <input type="text" id="nombre-producto" required>
+<body class="bg-light">
+  <!-- Header con gradiente -->
+  <header class="bg-success bg-gradient shadow-sm">
+    <div class="container">
+      <div class="row align-items-center py-4">
+        <div class="col-md-8">
+          <h1 class="text-white mb-0 fw-bold">
+            📦 Gestión de Productos
+          </h1>
+          <p class="text-white-50 mb-0 mt-1">Administra tu catálogo e inventario</p>
+        </div>
+        <div class="col-md-4 text-end">
+          <a href="index.html" class="btn btn-light btn-sm">
+            🏠 Volver al Menú
+          </a>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="codigo-producto">Código:</label>
-        <input type="text" id="codigo-producto" required>
-      </div>
-      <div class="form-group">
-        <label for="precio-producto">Precio:</label>
-        <input type="number" id="precio-producto" step="0.01" min="0" required>
-      </div>
-      <button type="submit">Registrar Producto</button>
-    </form>
+    </div>
+  </header>
 
-    <h3>Productos Registrados</h3>
-    <div id="productos-lista"><!-- Aquí renderiza JS --></div>
+  <!-- Navegación secundaria -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <div class="navbar-nav mx-auto">
+        <a class="nav-link px-3" href="clientes.html">👥 Clientes</a>
+        <a class="nav-link active px-3 fw-bold text-success" href="productos.html">📦 Productos</a>
+        <a class="nav-link px-3" href="facturacion.html">💵 Facturación</a>
+        <a class="nav-link px-3" href="facturas.html">📋 Historial</a>
+      </div>
+    </div>
+  </nav>
 
-    <p><button type="button" class="btn btn-primary"><a href="index.html" style="color: white;">Menu</a></button></p>
-  </div>
-  <script src="/public/lib/bootstrap-5.3.6-dist/js/bootstrap.min.js"></script>
-  <script src="public/js/app.js"></script>
+  <main class="container my-5">
+    <div class="row">
+      <!-- Formulario de registro -->
+      <div class="col-lg-4 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-header bg-success text-white">
+            <h5 class="mb-0 fw-bold">➕ Nuevo Producto</h5>
+          </div>
+          <div class="card-body">
+            <form id="producto-form">
+              <div class="mb-3">
+                <label for="nombre-producto" class="form-label fw-semibold">Nombre del Producto</label>
+                <input type="text" class="form-control" id="nombre-producto" placeholder="Ej: Laptop HP" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="codigo-producto" class="form-label fw-semibold">Código del Producto</label>
+                <input type="text" class="form-control" id="codigo-producto" placeholder="Ej: LAP001" required>
+                <div class="form-text">Código único de identificación</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="precio-producto" class="form-label fw-semibold">Precio Unitario</label>
+                <div class="input-group">
+                  <span class="input-group-text">$</span>
+                  <input type="number" class="form-control" id="precio-producto" step="0.01" min="0" placeholder="0.00"
+                    required>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-success w-100 fw-semibold">
+                💾 Registrar Producto
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lista de productos -->
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+            <h5 class="mb-0 fw-bold text-success">
+              📋 Productos Registrados
+            </h5>
+            <span class="badge bg-success-subtle text-success fs-6" id="contador-productos">
+              0 productos
+            </span>
+          </div>
+          <div class="card-body p-0">
+            <div id="productos-lista">
+              <!-- Mensaje inicial cuando no hay productos -->
+              <div class="text-center py-5" id="mensaje-vacio">
+                <div class="text-muted mb-3">
+                  <span class="fs-1">📦</span>
+                </div>
+                <h6 class="text-muted">No hay productos registrados</h6>
+                <p class="text-muted small mb-0">Agrega tu primer producto usando el formulario</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estadísticas rápidas -->
+        <div class="row mt-4">
+          <div class="col-md-4">
+            <div class="card border-0 bg-primary bg-opacity-10 text-center">
+              <div class="card-body py-3">
+                <h4 class="text-primary fw-bold mb-1" id="total-productos">0</h4>
+                <small class="text-muted">Total Productos</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card border-0 bg-success bg-opacity-10 text-center">
+              <div class="card-body py-3">
+                <h4 class="text-success fw-bold mb-1" id="valor-inventario">$0.00</h4>
+                <small class="text-muted">Valor Promedio</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card border-0 bg-warning bg-opacity-10 text-center">
+              <div class="card-body py-3">
+                <h4 class="text-warning fw-bold mb-1" id="producto-mas-caro">$0.00</h4>
+                <small class="text-muted">Producto Más Caro</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2024 Sistema de Facturación - Módulo Productos</p>
+        </div>
+        <div class="col-md-6 text-end">
+          <a href="index.html" class="btn btn-outline-light btn-sm">
+            🏠 Menú Principal
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="./public/js/app.js"></script>
+  <script src="./public/lib/bootstrap-5.3.6-dist/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

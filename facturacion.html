@@ -5,44 +5,239 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Generar Factura — Facturación</title>
-  <link rel="stylesheet" href="public/css/style.css">
+  <!-- Tu Bootstrap local -->
 
+  <link rel="stylesheet" href="./public/lib/bootstrap-5.3.6-dist/css/bootstrap.min.css">
 </head>
 
-<body>
+<body class="bg-light">
+  <!-- Header con gradiente -->
+  <div class="bg-success bg-gradient text-white py-4 mb-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col">
+          <h1 class="h3 mb-0">
+            <i class="bi bi-receipt me-2"></i>
+            Generar Factura
+          </h1>
+          <small class="opacity-75">Sistema de Facturación</small>
+        </div>
+        <div class="col-auto">
+          <a href="index.html" class="btn btn-light btn-sm">
+            <i class="bi bi-house-fill me-1"></i>
+            Menú Principal
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="container">
-    <h2>Generar Factura</h2>
     <form id="factura-form">
-      <div class="form-group">
-        <label for="cliente-factura">Cliente:</label>
-        <select id="cliente-factura" required></select>
-      </div>
+      <div class="row g-4">
+        <!-- Selección de Cliente -->
+        <div class="col-12">
+          <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary bg-gradient text-white">
+              <h5 class="card-title mb-0">
+                <i class="bi bi-person-check-fill me-2"></i>
+                Seleccionar Cliente
+              </h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-8">
+                  <label for="cliente-factura" class="form-label fw-semibold">
+                    <i class="bi bi-person me-1 text-primary"></i>
+                    Cliente
+                  </label>
+                  <select class="form-select form-select-lg" id="cliente-factura" required>
+                    <option value="">Seleccione un cliente...</option>
+                  </select>
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                  <button type="button" class="btn btn-outline-primary w-100">
+                    <i class="bi bi-person-plus me-1"></i>
+                    Nuevo Cliente
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <h3>Agregar Productos</h3>
-      <div class="form-group">
-        <label for="producto-factura">Producto:</label>
-        <select id="producto-factura"></select>
-      </div>
-      <div class="form-group">
-        <label for="cantidad-producto">Cantidad:</label>
-        <input type="number" id="cantidad-producto" min="1" value="1">
-      </div>
-      <button type="button" id="agregar-producto">Agregar Producto</button>
+        <!-- Agregar Productos -->
+        <div class="col-lg-7">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-header bg-info bg-gradient text-white">
+              <h5 class="card-title mb-0">
+                <i class="bi bi-box-seam me-2"></i>
+                Agregar Productos
+              </h5>
+            </div>
+            <div class="card-body">
+              <div class="mb-3">
+                <label for="producto-factura" class="form-label fw-semibold">
+                  <i class="bi bi-box me-1 text-info"></i>
+                  Producto
+                </label>
+                <select class="form-select form-select-lg" id="producto-factura">
+                  <option value="">Seleccione un producto...</option>
+                </select>
+              </div>
 
-      <h3>Productos en Esta Factura</h3>
-      <div id="productos-factura-lista"><!-- JS renderiza aquí --></div>
+              <div class="mb-4">
+                <label for="cantidad-producto" class="form-label fw-semibold">
+                  <i class="bi bi-hash me-1 text-info"></i>
+                  Cantidad
+                </label>
+                <input type="number" class="form-control form-control-lg" id="cantidad-producto" min="1" value="1"
+                  placeholder="Ingrese la cantidad">
+              </div>
 
-      <div class="resumen-factura">
-        <h3>Resumen</h3>
-        <factura-resumen id="factura-resumen"></factura-resumen>
+              <div class="d-grid">
+                <button type="button" id="agregar-producto" class="btn btn-info btn-lg">
+                  <i class="bi bi-plus-circle-fill me-2"></i>
+                  Agregar a Factura
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lista de Productos en Factura -->
+        <div class="col-lg-5">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+              <h5 class="card-title mb-0">
+                <i class="bi bi-cart-fill me-2"></i>
+                Productos en Factura
+              </h5>
+              <span class="badge bg-dark" id="contador-productos">0</span>
+            </div>
+            <div class="card-body">
+              <div id="productos-factura-lista">
+                <!-- Placeholder inicial -->
+                <div class="text-center py-4 text-muted" id="placeholder-productos">
+                  <i class="bi bi-cart-x display-1 opacity-25"></i>
+                  <h6 class="mt-3">Sin productos</h6>
+                  <p class="small">Agregue productos a la factura</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resumen de Factura -->
+        <div class="col-12">
+          <div class="card shadow border-0 bg-light">
+            <div class="card-header bg-secondary text-white">
+              <h5 class="card-title mb-0">
+                <i class="bi bi-calculator me-2"></i>
+                Resumen de Factura
+              </h5>
+            </div>
+            <div class="card-body">
+              <div class="row text-center">
+                <div class="col-md-3">
+                  <div class="border-end">
+                    <h6 class="text-muted mb-1">Subtotal</h6>
+                    <h4 class="text-primary mb-0" id="subtotal-factura">$0.00</h4>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="border-end">
+                    <h6 class="text-muted mb-1">IVA (12%)</h6>
+                    <h4 class="text-info mb-0" id="iva-factura">$0.00</h4>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="border-end">
+                    <h6 class="text-muted mb-1">Descuento</h6>
+                    <h4 class="text-warning mb-0" id="descuento-factura">$0.00</h4>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <h6 class="text-muted mb-1">Total</h6>
+                  <h3 class="text-success mb-0 fw-bold" id="total-factura">$0.00</h3>
+                </div>
+              </div>
+
+              <!-- Custom component placeholder -->
+              <div id="factura-resumen" class="mt-3">
+                <!-- Tu componente factura-resumen se renderizará aquí -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="col-12">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <button type="submit" class="btn btn-success btn-lg w-100">
+                <i class="bi bi-file-earmark-check-fill me-2"></i>
+                Generar Factura
+              </button>
+            </div>
+            <div class="col-md-3">
+              <button type="button" class="btn btn-outline-secondary btn-lg w-100">
+                <i class="bi bi-eye me-2"></i>
+                Vista Previa
+              </button>
+            </div>
+            <div class="col-md-3">
+              <button type="reset" class="btn btn-outline-danger btn-lg w-100">
+                <i class="bi bi-arrow-clockwise me-2"></i>
+                Limpiar
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <button type="submit">Generar Factura</button>
     </form>
 
-    <p><button type="button" class="btn btn-primary"><a href="index.html" style="color: white;">Menu</a></button></p>
-    <script src="/public/lib/bootstrap-5.3.6-dist/js/bootstrap.min.js"></script>
-    <script src="public/js/app.js"></script>
+    <!-- Estadísticas -->
+    <div class="row mt-4">
+      <div class="col">
+        <div class="card border-0 bg-success bg-gradient text-white">
+          <div class="card-body text-center py-3">
+            <div class="row">
+              <div class="col">
+                <h6 class="card-title mb-1">Productos Agregados</h6>
+                <h4 class="mb-0" id="total-productos">0</h4>
+              </div>
+              <div class="col">
+                <h6 class="card-title mb-1">Valor Promedio</h6>
+                <h4 class="mb-0" id="valor-promedio">$0.00</h4>
+              </div>
+              <div class="col">
+                <h6 class="card-title mb-1">Estado</h6>
+                <span class="badge bg-light text-dark">Borrador</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-muted py-4 mt-5">
+      <small>
+        <i class="bi bi-shield-check me-1"></i>
+        Sistema de Facturación - Generación de Facturas
+      </small>
+    </footer>
+  </div>
+
+  <!-- Bootstrap Icons (desde CDN) -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+
+
+  <script src="./public/js/app.js"></script>
+  <script src="./public/lib/bootstrap-5.3.6-dist/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
