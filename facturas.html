@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="./public/lib/bootstrap-5.3.6-dist/css/bootstrap.min.css">
 
 </head>
-
 <body class="bg-light">
   <!-- Header con gradiente -->
   <div class="bg-info bg-gradient text-white py-4 mb-4">
@@ -31,6 +30,39 @@
       </div>
     </div>
   </div>
+
+  <!-- Navegación principal -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item mx-2">
+            <a class="nav-link active fw-semibold px-4 py-2 rounded-pill" href="clientes.html">
+              👥 Clientes
+            </a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link fw-semibold px-4 py-2 rounded-pill" href="productos.html">
+              📦 Productos
+            </a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link fw-semibold px-4 py-2 rounded-pill" href="facturacion.html">
+              💵 Facturación
+            </a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link fw-semibold px-4 py-2 rounded-pill" href="facturas.html">
+              📋 Historial
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <div class="container">
     <!-- Filtros y Búsqueda -->
@@ -136,43 +168,7 @@
       </div>
     </div>
 
-    <!-- Acciones Rápidas -->
-    <div class="row mt-4">
-      <div class="col-md-6">
-        <div class="card border-0 bg-success bg-gradient text-white">
-          <div class="card-body text-center py-3">
-            <h6 class="card-title">Acciones Rápidas</h6>
-            <div class="d-flex justify-content-center gap-2 mt-2">
-              <button type="button" class="btn btn-light btn-sm">
-                <i class="bi bi-plus-circle me-1"></i>
-                Nueva Factura
-              </button>
-              <button type="button" class="btn btn-outline-light btn-sm">
-                <i class="bi bi-download me-1"></i>
-                Exportar
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card border-0 bg-warning text-dark">
-          <div class="card-body text-center py-3">
-            <h6 class="card-title">Resumen del Período</h6>
-            <div class="row text-center mt-2">
-              <div class="col">
-                <small class="text-muted">Este Mes</small>
-                <h6 class="mb-0" id="facturas-mes">0</h6>
-              </div>
-              <div class="col">
-                <small class="text-muted">Este Año</small>
-                <h6 class="mb-0" id="facturas-ano">0</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
     <!-- Footer -->
     <footer class="text-center text-muted py-4 mt-5">
@@ -183,38 +179,13 @@
     </footer>
   </div>
 
-  <!-- Modal para Vista Previa de Factura -->
-  <div class="modal fade" id="modalVistaPrevia" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-info text-white">
-          <h5 class="modal-title">
-            <i class="bi bi-eye me-2"></i>
-            Vista Previa de Factura
-          </h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body" id="contenido-vista-previa">
-          <!-- Contenido de la factura se carga aquí -->
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">
-            <i class="bi bi-printer me-1"></i>
-            Imprimir
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Bootstrap Icons (desde CDN) -->
+
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
   <script src="./public/js/app.js"></script>
-  <script src="./public/lib/bootstrap-5.3.6-dist/js/bootstrap.min.js"></script>
-
-
+  <script src="./public/lib/bootstrap-5.3.6-dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 
 </html>
