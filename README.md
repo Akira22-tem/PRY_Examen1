@@ -1,4 +1,4 @@
-<h1>Sistema de Facturación</h1>
+<h1> 📋 Sistema de Facturación</h1>
 
 ![image](https://github.com/user-attachments/assets/2db4aa0a-010b-4dc5-b99d-c6129c5428c1)
 
@@ -27,9 +27,22 @@ Web Components: Uso de Custom Elements para el resumen de facturas
 
 localStorage: Persistencia de datos en el navegador 
 
-## 🖥 Interfaz de Usuario
-Pestaña	Función	Acciones Disponibles
-Clientes	Administrar información de clientes	Crear, Editar, Eliminar
-Productos	Gestionar artículos en inventario	Añadir, Modificar, Remover
-Facturar	Generar nuevas facturas	Seleccionar cliente, agregar items
-Historial	Ver facturas generadas	Consultar, Filtrar, Eliminar
+## 📊 Flujo de Facturación
+Seleccionar cliente existente o crear nuevo
+
+Añadir productos con sus cantidades
+
+Ver resumen automático con totales
+
+Confirmar y guardar factura
+
+## 📌 Datos Técnicos
+Persistencia: Todos los datos se guardan automáticamente
+
+Compatibilidad: Funciona en Chrome, Firefox, Edge y Safari
+
+Limitaciones:
+
+Máximo 5MB de almacenamiento (limitación de localStorage)
+
+Solo disponible en el navegador donde se usa
