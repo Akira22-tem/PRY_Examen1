@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (formularioCliente && listaClientes) {
         let clientes = [...datosClientes];
         let idClienteEdicion = null;
-
+        /*--------------------------------------------------------------------------------------------------------------------*/
         const mostrarClientes = () => {
             if (!clientes.length) {
                 listaClientes.innerHTML = '<p>No hay clientes registrados.</p>';
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             html += `</tbody></table>`;
             listaClientes.innerHTML = html;
         };
-
+        /*--------------------------------------------------------------------------------------------------------------------*/
         const guardarClientes = () => localStorage.setItem('clientes', JSON.stringify(clientes));
 
         formularioCliente.addEventListener('submit', evento => {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mostrarClientes();
             formularioCliente.reset();
         });
-
+        /*--------------------------------------------------------------------------------------------------------------------*/
         listaClientes.addEventListener('click', evento => {
             const id = +evento.target.dataset.id;
 
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         mostrarClientes();
     }
-
+    /*--------------------------------------------------------------------------------------------------------------------*/
     /*** MÓDULO DE PRODUCTOS ***/
     const formularioProducto = document.getElementById('producto-form');
     const listaProductos = document.getElementById('productos-lista');
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             html += `</tbody></table>`;
             listaProductos.innerHTML = html;
         };
-
+        /*--------------------------------------------------------------------------------------------------------------------*/
         const guardarProductos = () => localStorage.setItem('productos', JSON.stringify(productos));
 
         formularioProducto.addEventListener('submit', evento => {
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mostrarProductos();
             formularioProducto.reset();
         });
-
+        /*--------------------------------------------------------------------------------------------------------------------*/
         listaProductos.addEventListener('click', evento => {
             const id = +evento.target.dataset.id;
 
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         mostrarProductos();
     }
-
+    /*--------------------------------------------------------------------------------------------------------------------*/
     /*** MÓDULO DE FACTURACIÓN ***/
     const formularioFactura = document.getElementById('factura-form');
     const selectorCliente = document.getElementById('cliente-factura');
@@ -173,13 +173,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const parametros = new URLSearchParams(window.location.search);
         idFacturaEdicion = parametros.get('edit');
         let articulos = [];
-
+        /*--------------------------------------------------------------------------------------------------------------------*/
         // Poblar selectores
         selectorCliente.innerHTML = '<option value="" disabled selected>Seleccione un cliente</option>' +
             datosClientes.map(cliente => `<option value="${cliente.id}">${cliente.nombre} (${cliente.cedula})</option>`).join('');
         selectorProducto.innerHTML = '<option value="" disabled selected>Seleccione un producto</option>' +
             datosProductos.map(producto => `<option value="${producto.id}">${producto.nombre} - ${producto.codigo} ($${producto.precio.toFixed(2)})</option>`).join('');
-
+        /*--------------------------------------------------------------------------------------------------------------------*/
         const facturas = JSON.parse(localStorage.getItem('facturas')) || [];
         if (idFacturaEdicion) {
             // Cargar factura a editar
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 formularioFactura.querySelector('button[type="submit"]').textContent = 'Actualizar Factura';
             }
         }
-
+        /*--------------------------------------------------------------------------------------------------------------------*/
         const mostrarArticulos = () => {
             if (!articulos.length) {
                 listaProductosFactura.innerHTML = '<p>No hay productos agregados a la factura.</p>';
@@ -198,46 +198,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 elementoVistaPrevia.innerHTML = '';
                 return;
             }
-
-            let tabla = `<table><thead><tr><th>Producto</th><th>Cantidad</th><th>Precio Unitario</th><th>Subtotal</th><th>Acción</th></tr></thead><tbody>`;
+            /*--------------------------------------------------------------------------------------------------------------------*/
+            let tabla = `<table class="table"><thead><tr><th>Producto</th><th>Cantidad</th><th>Precio Unitario</th><th>Subtotal</th><th>Acción</th></tr></thead><tbody>`;
             let totalGeneral = 0;
 
             articulos.forEach((articulo, indice) => {
                 const subtotal = articulo.precio * articulo.cantidad;
                 totalGeneral += subtotal;
                 tabla += `<tr>
-          <td>${articulo.nombre}</td>
-          <td>${articulo.cantidad}</td>
-          <td>$${articulo.precio.toFixed(2)}</td>
-          <td>$${subtotal.toFixed(2)}</td>
-          <td><button class="boton-eliminar-articulo" data-index="${indice}">Quitar</button></td>
-        </tr>`;
+      <td>${articulo.nombre}</td>
+      <td>${articulo.cantidad}</td>
+      <td>$${articulo.precio.toFixed(2)}</td>
+      <td>$${subtotal.toFixed(2)}</td>
+      <td><button class="btn btn-danger btn-sm boton-eliminar-articulo" data-index="${indice}">Quitar</button></td>
+    </tr>`;
             });
-
+            /*--------------------------------------------------------------------------------------------------------------------*/
             tabla += `</tbody></table>`;
             listaProductosFactura.innerHTML = tabla;
             elementoResumenFactura.textContent = `Total General: $${totalGeneral.toFixed(2)}`;
-
-            const clienteSeleccionado = datosClientes.find(cliente => cliente.id === +selectorCliente.value);
-            const fechaActual = new Date().toLocaleString('es-ES');
-
-            elementoVistaPrevia.innerHTML = `
-        <div class="encabezado-vista-previa">
-          <p><strong>Cliente:</strong> ${clienteSeleccionado?.nombre || 'No seleccionado'}</p>
-          <p><strong>Fecha:</strong> ${fechaActual}</p>
-        </div>
-        ${tabla}
-        <p class="total-vista-previa"><strong>Total a Pagar: $${totalGeneral.toFixed(2)}</strong></p>
-      `;
-
-            // Agregar eventos para eliminar artículos
             listaProductosFactura.querySelectorAll('.boton-eliminar-articulo').forEach(boton =>
                 boton.addEventListener('click', () => {
-                    articulos.splice(+boton.dataset.index, 1);
+                    const index = +boton.dataset.index;
+                    articulos.splice(index, 1);
                     mostrarArticulos();
                 })
             );
         };
+        /*--------------------------------------------------------------------------------------------------------------------*/
+
 
         botonAgregarProducto.addEventListener('click', () => {
             const idProducto = +selectorProducto.value;
@@ -260,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
             campoCantidad.value = 1;
             selectorProducto.selectedIndex = 0;
         });
-
+        /*--------------------------------------------------------------------------------------------------------------------*/
         selectorCliente.addEventListener('change', mostrarArticulos);
 
         formularioFactura.addEventListener('submit', evento => {
@@ -288,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         mostrarArticulos();
     }
-
+    /*--------------------------------------------------------------------------------------------------------------------*/
     /*** MÓDULO DE HISTORIAL DE FACTURAS ***/
     const elementoHistorial = document.getElementById('facturas-lista');
     if (elementoHistorial) {
@@ -335,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             elementoHistorial.innerHTML = contenidoHtml;
-
+            /*--------------------------------------------------------------------------------------------------------------------*/
             // Agregar eventos de interacción
             elementoHistorial.querySelectorAll('.alternar-detalles').forEach(boton =>
                 boton.addEventListener('click', () => {
