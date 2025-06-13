@@ -22,7 +22,7 @@ Mantener un historial de todas las facturas generadas
 
 HTML5: Estructura de la aplicación
 
-CSS3 y BOOTSTRAP: Estilos y diseño responsive
+BOOTSTRAP: Estilos y diseño responsive
 
 JavaScript: Lógica de la aplicación
 
