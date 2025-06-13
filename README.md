@@ -26,3 +26,10 @@ JavaScript: Lógica de la aplicación
 Web Components: Uso de Custom Elements para el resumen de facturas
 
 localStorage: Persistencia de datos en el navegador 
+
+## 🖥 Interfaz de Usuario
+Pestaña	Función	Acciones Disponibles
+Clientes	Administrar información de clientes	Crear, Editar, Eliminar
+Productos	Gestionar artículos en inventario	Añadir, Modificar, Remover
+Facturar	Generar nuevas facturas	Seleccionar cliente, agregar items
+Historial	Ver facturas generadas	Consultar, Filtrar, Eliminar
