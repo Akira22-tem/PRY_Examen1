@@ -31,6 +31,40 @@
     </div>
   </div>
 
+   <!-- Navegación principal -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item mx-2">
+            <a class="nav-link active fw-semibold px-4 py-2 rounded-pill" href="clientes.html">
+              👥 Clientes
+            </a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link fw-semibold px-4 py-2 rounded-pill" href="productos.html">
+              📦 Productos
+            </a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link fw-semibold px-4 py-2 rounded-pill" href="facturacion.html">
+              💵 Facturación
+            </a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link fw-semibold px-4 py-2 rounded-pill" href="facturas.html">
+              📋 Historial
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
   <div class="container">
     <div class="row g-4">
       <!-- Formulario de registro -->
@@ -106,29 +140,7 @@
       </div>
     </div>
 
-    <!-- Estadísticas (opcional) -->
-    <div class="row mt-4">
-      <div class="col">
-        <div class="card border-0 bg-primary bg-gradient text-white">
-          <div class="card-body text-center py-3">
-            <div class="row">
-              <div class="col">
-                <h6 class="card-title mb-1">Total Clientes</h6>
-                <h4 class="mb-0" id="total-clientes">0</h4>
-              </div>
-              <div class="col">
-                <h6 class="card-title mb-1">Último Registro</h6>
-                <p class="mb-0 small" id="ultimo-registro">-</p>
-              </div>
-              <div class="col">
-                <h6 class="card-title mb-1">Estado</h6>
-                <span class="badge bg-light text-dark">Activo</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
     <!-- Footer -->
     <footer class="text-center text-muted py-4 mt-5">
@@ -144,7 +156,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
 
   <script src="./public/js/app.js"></script>
-  <script src="./public/lib/bootstrap-5.3.6-dist/js/bootstrap.min.js"></script>
+  <script src="./public/lib/bootstrap-5.3.6-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
