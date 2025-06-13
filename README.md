@@ -48,4 +48,4 @@ Limitaciones:
 
 Máximo 5MB de almacenamiento (limitación de localStorage)
 
-Solo disponible en el navegador donde se usa
+Solo disponible en el navegador donde se usa.
