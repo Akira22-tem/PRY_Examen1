@@ -5,12 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Historial de Facturas — Facturación</title>
-  <!-- Tu Bootstrap local -->
   <link rel="stylesheet" href="./public/lib/bootstrap-5.3.6-dist/css/bootstrap.min.css">
 
 </head>
 <body class="bg-light">
-  <!-- Header con gradiente -->
+  <!-- Encabezado de pagina -->
   <div class="bg-info bg-gradient text-white py-4 mb-4">
     <div class="container">
       <div class="row align-items-center">
@@ -31,7 +30,7 @@
     </div>
   </div>
 
-  <!-- Navegación principal -->
+  <!-- Menu de Navegación -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -105,7 +104,7 @@
       </div>
     </div>
 
-    <!-- Estadísticas Rápidas -->
+    <!-- Se muestra estadisticas -->
     <div class="row mb-4">
       <div class="col">
         <div class="card border-0 bg-info bg-gradient text-white">
@@ -133,7 +132,7 @@
       </div>
     </div>
 
-    <!-- Lista de Facturas -->
+    <!-- Espacio para listar facturas -->
     <div class="card shadow-sm border-0">
       <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
         <h5 class="card-title mb-0">
@@ -154,7 +153,6 @@
       </div>
       <div class="card-body">
         <div id="facturas-lista">
-          <!-- Placeholder inicial -->
           <div class="text-center py-5 text-muted" id="placeholder-facturas">
             <i class="bi bi-receipt display-1 opacity-25"></i>
             <h5 class="mt-3">No hay facturas registradas</h5>
@@ -167,25 +165,26 @@
         </div>
       </div>
     </div>
-
-
-
-    <!-- Footer -->
-    <footer class="text-center text-muted py-4 mt-5">
-      <small>
-        <i class="bi bi-shield-check me-1"></i>
-        Sistema de Facturación - Historial de Facturas
-      </small>
-    </footer>
   </div>
-
-
+<!-- Pie de pagina -->
+ <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2025 Sistema de Facturación - Módulo Productos</p>
+        </div>
+        <div class="col-md-6 text-end">
+          <a href="index.html" class="btn btn-outline-light btn-sm">
+            🏠 Menú Principal
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
   <script src="./public/js/app.js"></script>
   <script src="./public/lib/bootstrap-5.3.6-dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
-
 </html>

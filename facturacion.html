@@ -5,13 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Generar Factura — Facturación</title>
-  <!-- Tu Bootstrap local -->
-
   <link rel="stylesheet" href="./public/lib/bootstrap-5.3.6-dist/css/bootstrap.min.css">
-</head>
 
+</head>
 <body class="bg-light">
-  <!-- Header con gradiente -->
+  <!-- Encabezado de pagina -->
   <div class="bg-success bg-gradient text-white py-4 mb-4">
     <div class="container">
       <div class="row align-items-center">
@@ -35,7 +33,7 @@
   <div class="container">
     <form id="factura-form">
       <div class="row g-4">
-        <!-- Selección de Cliente -->
+        <!-- Datos del cliente -->
         <div class="col-12">
           <div class="card shadow-sm border-0">
             <div class="card-header bg-primary bg-gradient text-white">
@@ -66,7 +64,7 @@
           </div>
         </div>
 
-        <!-- Agregar Productos -->
+        <!-- Datos del Productos -->
         <div class="col-lg-7">
           <div class="card shadow-sm border-0 h-100">
             <div class="card-header bg-info bg-gradient text-white">
@@ -105,7 +103,7 @@
           </div>
         </div>
 
-        <!-- Lista de Productos en Factura -->
+        <!-- Espacio donde se lista las facturas ingresadas -->
         <div class="col-lg-5">
           <div class="card shadow-sm border-0 h-100">
             <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
@@ -117,7 +115,6 @@
             </div>
             <div class="card-body">
               <div id="productos-factura-lista">
-                <!-- Placeholder inicial -->
                 <div class="text-center py-4 text-muted" id="placeholder-productos">
                   <i class="bi bi-cart-x display-1 opacity-25"></i>
                   <h6 class="mt-3">Sin productos</h6>
@@ -128,7 +125,7 @@
           </div>
         </div>
 
-        <!-- Resumen de Factura -->
+        <!-- Valores de Factura -->
         <div class="col-12">
           <div class="card shadow border-0 bg-light">
             <div class="card-header bg-secondary text-white">
@@ -163,15 +160,13 @@
                 </div>
               </div>
 
-              <!-- Custom component placeholder -->
               <div id="factura-resumen" class="mt-3">
-                <!-- Tu componente factura-resumen se renderizará aquí -->
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Botones de Acción -->
+        <!-- Botones para generar, limpiar y vista previa -->
         <div class="col-12">
           <div class="row g-3">
             <div class="col-md-6">
@@ -197,7 +192,7 @@
       </div>
     </form>
 
-    <!-- Estadísticas -->
+    <!-- Valor Promedio -->
     <div class="row mt-4">
       <div class="col">
         <div class="card border-0 bg-success bg-gradient text-white">
@@ -221,7 +216,7 @@
       </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Pie de pagina -->
     <footer class="text-center text-muted py-4 mt-5">
       <small>
         <i class="bi bi-shield-check me-1"></i>
@@ -230,11 +225,8 @@
     </footer>
   </div>
 
-  <!-- Bootstrap Icons (desde CDN) -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
-
-
   <script src="./public/js/app.js"></script>
   <script src="./public/lib/bootstrap-5.3.6-dist/js/bootstrap.min.js"></script>
 
