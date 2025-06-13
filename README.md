@@ -14,6 +14,9 @@ Generar facturas con múltiples productos
 
 Mantener un historial de todas las facturas generadas
 
+![image](https://github.com/user-attachments/assets/1e6e4dd6-8571-4732-ba9d-fc873df54bd5)
+
+
 
 ## 🔧 Tecnologías utilizadas
 
