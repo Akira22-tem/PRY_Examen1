@@ -1,150 +1,185 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sistema de Facturación</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sistema de Facturación</title>
+    <link
+      rel="stylesheet"
+      href="./public/lib/bootstrap-5.3.6-dist/css/bootstrap.min.css"
+    />
+  </head>
 
-  <link rel="stylesheet" href="./public/lib/bootstrap-5.3.6-dist/css/bootstrap.min.css">
-</head>
-
-<body class="bg-light">
-  <!-- Encabezado de pagina principal -->
-  <header class="bg-primary bg-gradient shadow-sm">
-    <div class="container">
-      <div class="row align-items-center py-4">
-        <div class="col-md-8">
-          <h1 class="text-white mb-0 fw-bold">
-            💰 Sistema de Facturación
-          </h1>
-          <p class="text-white-50 mb-0 mt-1">Gestiona tu negocio de forma eficiente</p>
-        </div>
-        <div class="col-md-4 text-end">
-          <span class="badge bg-light text-primary fs-6 px-3 py-2">
-            📊 Panel Principal
-          </span>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Menu principal -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item mx-2">
-            <a class="nav-link active fw-semibold px-4 py-2 rounded-pill" href="clientes.html">
-              👥 Clientes
-            </a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link fw-semibold px-4 py-2 rounded-pill" href="productos.html">
-              📦 Productos
-            </a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link fw-semibold px-4 py-2 rounded-pill" href="facturacion.html">
-              💵 Facturación
-            </a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link fw-semibold px-4 py-2 rounded-pill" href="facturas.html">
-              📋 Historial
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Accesos rapidos -->
-  <main class="container my-5">
-    <div class="row g-4 mb-5">
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 border-0 shadow-sm">
-          <div class="card-body text-center p-4">
-            <div
-              class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
-              style="width: 80px; height: 80px;">
-              <span class="fs-1">👥</span>
-            </div>
-            <h5 class="card-title fw-bold mb-2">Gestión de Clientes</h5>
-            <p class="card-text text-muted mb-3">Administra tu base de datos de clientes</p>
-            <a href="clientes.html" class="btn btn-primary btn-sm px-4">
-              Acceder →
-            </a>
+  <body class="bg-light">
+    <!-- Encabezado de pagina principal -->
+    <header class="bg-primary bg-gradient shadow-sm">
+      <div class="container">
+        <div class="row align-items-center py-4">
+          <div class="col-md-8">
+            <h1 class="text-white mb-0 fw-bold">💰 Sistema de Facturación</h1>
+            <p class="text-white-50 mb-0 mt-1">
+              Gestiona tu negocio de forma eficiente
+            </p>
+          </div>
+          <div class="col-md-4 text-end">
+            <span class="badge bg-light text-primary fs-6 px-3 py-2">
+              📊 Panel Principal
+            </span>
           </div>
         </div>
       </div>
+    </header>
 
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 border-0 shadow-sm">
-          <div class="card-body text-center p-4">
-            <div
-              class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
-              style="width: 80px; height: 80px;">
-              <span class="fs-1">📦</span>
+    <!-- Menu principal -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top"
+    >
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item mx-2">
+              <a
+                class="nav-link active fw-semibold px-4 py-2 rounded-pill"
+                href="clientes.html"
+              >
+                👥 Clientes
+              </a>
+            </li>
+            <li class="nav-item mx-2">
+              <a
+                class="nav-link fw-semibold px-4 py-2 rounded-pill"
+                href="productos.html"
+              >
+                📦 Productos
+              </a>
+            </li>
+            <li class="nav-item mx-2">
+              <a
+                class="nav-link fw-semibold px-4 py-2 rounded-pill"
+                href="facturacion.html"
+              >
+                💵 Facturación
+              </a>
+            </li>
+            <li class="nav-item mx-2">
+              <a
+                class="nav-link fw-semibold px-4 py-2 rounded-pill"
+                href="facturas.html"
+              >
+                📋 Historial
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Accesos rapidos -->
+    <main class="container my-5">
+      <div class="row g-4 mb-5">
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center p-4">
+              <div
+                class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                style="width: 80px; height: 80px"
+              >
+                <span class="fs-1">👥</span>
+              </div>
+              <h5 class="card-title fw-bold mb-2">Gestión de Clientes</h5>
+              <p class="card-text text-muted mb-3">
+                Administra tu base de datos de clientes
+              </p>
+              <a href="clientes.html" class="btn btn-primary btn-sm px-4">
+                Acceder →
+              </a>
             </div>
-            <h5 class="card-title fw-bold mb-2">Catálogo de Productos</h5>
-            <p class="card-text text-muted mb-3">Gestiona tu inventario y precios</p>
-            <a href="productos.html" class="btn btn-success btn-sm px-4">
-              Acceder →
-            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center p-4">
+              <div
+                class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                style="width: 80px; height: 80px"
+              >
+                <span class="fs-1">📦</span>
+              </div>
+              <h5 class="card-title fw-bold mb-2">Catálogo de Productos</h5>
+              <p class="card-text text-muted mb-3">
+                Gestiona tu inventario y precios
+              </p>
+              <a href="productos.html" class="btn btn-success btn-sm px-4">
+                Acceder →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center p-4">
+              <div
+                class="bg-warning bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                style="width: 80px; height: 80px"
+              >
+                <span class="fs-1">💵</span>
+              </div>
+              <h5 class="card-title fw-bold mb-2">Nueva Factura</h5>
+              <p class="card-text text-muted mb-3">
+                Crea facturas de forma rápida
+              </p>
+              <a href="facturacion.html" class="btn btn-warning btn-sm px-4">
+                Acceder →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center p-4">
+              <div
+                class="bg-info bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                style="width: 80px; height: 80px"
+              >
+                <span class="fs-1">📋</span>
+              </div>
+              <h5 class="card-title fw-bold mb-2">Historial de Facturas</h5>
+              <p class="card-text text-muted mb-3">
+                Consulta facturas anteriores
+              </p>
+              <a href="facturas.html" class="btn btn-info btn-sm px-4">
+                Acceder →
+              </a>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 border-0 shadow-sm">
-          <div class="card-body text-center p-4">
-            <div
-              class="bg-warning bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
-              style="width: 80px; height: 80px;">
-              <span class="fs-1">💵</span>
-            </div>
-            <h5 class="card-title fw-bold mb-2">Nueva Factura</h5>
-            <p class="card-text text-muted mb-3">Crea facturas de forma rápida</p>
-            <a href="facturacion.html" class="btn btn-warning btn-sm px-4">
-              Acceder →
-            </a>
+    </main>
+    <!-- Pie de pagina es aqui-->
+    <footer class="bg-dark text-white py-4 mt-auto">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 col-12 text-center text-md-start">
+            <p class="mb-0">
+              &copy; 2025 Sistema de Facturación. Todos los derechos reservados.
+            </p>
           </div>
         </div>
       </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 border-0 shadow-sm">
-          <div class="card-body text-center p-4">
-            <div
-              class="bg-info bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
-              style="width: 80px; height: 80px;">
-              <span class="fs-1">📋</span>
-            </div>
-            <h5 class="card-title fw-bold mb-2">Historial de Facturas</h5>
-            <p class="card-text text-muted mb-3">Consulta facturas anteriores</p>
-            <a href="facturas.html" class="btn btn-info btn-sm px-4">
-              Acceder →
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-  <!-- Pie de pagina -->
-  <footer class="bg-dark text-white py-4 mt-auto">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 col-12 text-center text-md-start">
-          <p class="mb-0">&copy; 2025 Sistema de Facturación. Todos los derechos reservados.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <script src="./public/js/app.js"></script>
-  <script src="./public/lib/bootstrap-5.3.6-dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    </footer>
+    <script src="./public/js/app.js"></script>
+    <script src="./public/lib/bootstrap-5.3.6-dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
